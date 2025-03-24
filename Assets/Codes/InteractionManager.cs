@@ -28,8 +28,8 @@ public class InteractionManager : MonoBehaviour
     IEnumerator HandleInteraction(Transform focusTarget, string message, System.Action onComplete)
     {
         // Disable movement
-        if (player.GetComponent<FirstPersonController>())
-            player.GetComponent<FirstPersonController>().enabled = false;
+        if (player.GetComponent<Camera>())
+            player.GetComponent<Camera>().enabled = false;
 
         // Smooth camera rotate
         float timer = 0f;
@@ -56,8 +56,8 @@ public class InteractionManager : MonoBehaviour
 
 
         // Re-enable movement
-        if (player.GetComponent<FirstPersonController>())
-            player.GetComponent<FirstPersonController>().enabled = true;
+        if (player.GetComponent<Camera>())
+            player.GetComponent<Camera>().enabled = true;
 
         // Optional callback (like marking quest complete)
         onComplete?.Invoke();
